@@ -1,0 +1,15 @@
+body{
+    background-color: brown;
+    background-image: linear-gradient(0deg, brown, #dc4f57, #f26e73, #f99091);
+  }
+  .logo{
+    height: 150px;
+    width: 170px;
+  }
+  .vh-100{
+    min-height: 100px;
+  }
+  #card{
+    width: 450px;
+    height: 500px;
+  }
