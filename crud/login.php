@@ -10,51 +10,40 @@
     <link rel="stylesheet" href="css/stylelogin.css">
 </head>
 <body >
-<div class="d-flex justify-content-center">
 
-</div>
-      
-  <div  class="vh-100 d-flex justify-content-center align-items-center">
-  
-    <form action="./verify/verifylogin.php" method="POST" class="needs-validation" novalidate>
-    <?php
-       if(isset($_GET['sucess'])){
-        echo "Usuário cadastrado com sucesso!";
-      
-      //   echo "<div class='alert alert-success alert-dismissible fade in'>
-      //   <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-      //   <strong>Success!</strong> Usuário cadastrado com sucesso!
-      // </div>";
-       }
-      
-    ?>
-      <div id="card" class=" bg-white container-fluid rounded shadow col-lg-6 col-md-8 col-sm-10">
-        <div class=" d-flex flex-column justify-content-center align-items-center" >
-          <img class="logo" src=".//img/logo_alargada.png" alt="">
-        </div>
-        <div class=" px-5">
-          <input class="border border-dark rounded form-control " type="text" name="email" placeholder="E-mail*" required> 
-          <p class="invalid-feedback m-0">
-            Este campo é obrigatório!
-          </p> <br>
-          <input id="password" type="password" class="border border-dark rounded form-control"  name="password" placeholder="Senha*" required>
-          <p class="invalid-feedback">
-            Este campo é obrigatório!
-          </p>
-        </div>
-        <div class="py-1 d-flex justify-content-center align-items-center ">
-          <button type="submit" class="btn btn-danger">Enviar</button>
-        </div>
-        <div class="py-1" >
-          <p class="py-2 text-center" >Não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
-        </div>
+     <div >
+            <div  class="vh-100 d-flex justify-content-center align-items-center  ">
         
-      </div>
-    </form>
-  </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="script.js"></script>
-<script>
+          <form action="BD/logar.php" method="POST" class="needs-validation" novalidate>
+
+            <div id="card" class=" bg-white container rounded shadow col col-lg-4 col-md-6 col-sm-8 ">
+              <div class=" d-flex flex-column justify-content-center align-items-center" >
+                <img class="logo" src=".//img/logo_alargada.png" alt="">
+              </div>
+              <div class=" px-5">
+                
+                <input class="border border-dark rounded form-control " type="text" name="email" placeholder="E-mail*" required> 
+                <p class="invalid-feedback m-0">
+                  Este campo é obrigatório!
+                </p> <br>
+                <input  type="password" class="border border-dark rounded form-control"  name="senha" placeholder="Senha*" required>
+                <p class="invalid-feedback">
+                  Este campo é obrigatório!
+                </p>
+              </div>
+              <div class="py-3 d-flex justify-content-center align-items-center ">
+                <button name="btn" type="submit" class="btn btn-danger">Enviar</button>
+              </div>
+              <div class="py-1" >
+                <p class="py-2 text-center" >Não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
+              </div>
+              
+            </div>
+          </form>
+        </div>
+     </div> 
+  
+ <script>
   (() => {
   'use strict'
   const forms = document.querySelectorAll('.needs-validation')
@@ -69,6 +58,6 @@
     }, false)
   })
 })()
-</script>
+</script> 
 </body>
 </html>

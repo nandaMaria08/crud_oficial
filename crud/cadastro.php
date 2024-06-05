@@ -17,8 +17,8 @@
 
 
     <div  class="vh-100 d-flex justify-content-center align-items-center " >
-        <form action="verify/verifycadastro.php" method="post" class="needs-validation" novalidate>
-            <div id="card" class="rounded py-2 px-5">
+        <form action="BD/cadastrar.php" method="post" class="needs-validation" novalidate>
+            <div id="card" class="rounded py-2 px-5 col col-lg-4 col-md-6 col-sm-8">
                 <h1 style="text-align:center;">Cadastro de Usuário</h1>
                 <div>
                     <label class="form-label" for="">Nome do usuario</label> 
@@ -29,12 +29,12 @@
                     <div class="invalid-feedback"> Este campo é obrigatório!</div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Nome Social</label>
                         <input type="text" class="form-control border border-dark rounded"  name="nome" required>
                         <div class="invalid-feedback"> Este campo é obrigatório!</div>
                      </div>
-                    <div class="col">
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Telefone</label>
                         <input type="tel" class="form-control border border-dark rounded" placeholder="(xx) xxxxx-xxxx" name="telefone" required>
                         <div class="invalid-feedback"> Este campo é obrigatório!</div>
@@ -42,12 +42,12 @@
                      
                </div>
                <div class="row">
-                    <div class="col">
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Senha</label>
                         <input type="text" class="form-control border border-dark rounded" id="senha" name="senha"  required>
                         <div class="invalid-feedback"> Este campo é obrigatório!</div>
                      </div>
-                    <div class="col">
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Confirmar senha</label>
                         <input type="password" class="form-control border border-dark rounded"  name="confirma_senha" required>
                         <div class="invalid-feedback"> Este campo é obrigatório!</div>
@@ -63,8 +63,6 @@
             
         </form>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> 
-    <script src="script.js"></script>
     <script>
         (() => {
   'use strict'

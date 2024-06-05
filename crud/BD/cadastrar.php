@@ -10,19 +10,20 @@ if(isset($_POST['btn'])){
         $confirma_senha = $_POST['confirma_senha'];
         
         if($senha == $confirma_senha){
-        $sql = "INSERT INTO usuarios(email,usuario,telefone,nome,senha) VALUES(:email,:usuario, :telefone, :nome,:senha)";
-        $resultado = $conn->prepare($sql);
+        $sql = "INSERT INTO users(email,usuario,telefone,nome,senha) VALUES(:email,:usuario, :telefone, :nome,:senha)";
+        $resultado = $pdo->prepare($sql);
         $resultado->bindValue("email", $email);
         $resultado->bindValue("usuario", $usuario);
         $resultado->bindValue("telefone", $telefone);
         $resultado->bindValue("nome", $nome);
         $resultado->bindValue("senha", $senha);
         $resultado->execute();
-        header('Location:../login.php?sucess');
-    }
-    else {
-        header('Location:../cadastro.php?erro');
-    }
+         header('Location:../login.php');
+      }
+    else{
+        header('Location: cadastro.php');
+     }
+   
         
 }
 }
