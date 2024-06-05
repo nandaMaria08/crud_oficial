@@ -10,26 +10,41 @@
     <link rel="stylesheet" href="css/stylelogin.css">
 </head>
 <body >
-
      <div >
-            <div  class="vh-100 d-flex justify-content-center align-items-center  ">
+        <div  class="vh-100 d-flex justify-content-center align-items-center  ">
         
           <form action="BD/logar.php" method="POST" class="needs-validation" novalidate>
+
+          <?php
+              if(isset($_GET['sucesso'])){
+                 echo "<div class='alert alert-success alert-dismissible'>
+                 <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                 <strong>Usuário cadastrado com sucesso!</strong> 
+                 </div>";
+              }
+              if(isset($_GET['erro'])){
+               echo  "<div class='alert alert-danger alert-dismissible'>
+               <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+               <strong>Usuário não cadastrado!</strong> Tente novamente.
+             </div>";
+              }
+          ?>
 
             <div id="card" class=" bg-white container rounded shadow col col-lg-4 col-md-6 col-sm-8 ">
               <div class=" d-flex flex-column justify-content-center align-items-center" >
                 <img class="logo" src=".//img/logo_alargada.png" alt="">
               </div>
               <div class=" px-5">
-                
+                <label class="form-label" for="">Email</label>
                 <input class="border border-dark rounded form-control " type="text" name="email" placeholder="E-mail*" required> 
                 <p class="invalid-feedback m-0">
                   Este campo é obrigatório!
                 </p> <br>
-                <input  type="password" class="border border-dark rounded form-control"  name="senha" placeholder="Senha*" required>
-                <p class="invalid-feedback">
+                <label class="form-label" for="">Senha</label>
+                <input class="border border-dark rounded form-control " type="password" name="senha" placeholder="Senha*" required> 
+                <p class="invalid-feedback m-0">
                   Este campo é obrigatório!
-                </p>
+                </p> 
               </div>
               <div class="py-3 d-flex justify-content-center align-items-center ">
                 <button name="btn" type="submit" class="btn btn-danger">Enviar</button>
@@ -43,21 +58,21 @@
         </div>
      </div> 
   
- <script>
-  (() => {
-  'use strict'
-  const forms = document.querySelectorAll('.needs-validation')
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
+  <script>
+    (() => {
+    'use strict'
+    const forms = document.querySelectorAll('.needs-validation')
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
 
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
-</script> 
+        form.classList.add('was-validated')
+      }, false)
+    })
+    })()
+  </script> 
 </body>
 </html>

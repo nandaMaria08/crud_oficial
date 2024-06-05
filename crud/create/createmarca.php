@@ -8,6 +8,6 @@ if(isset($_POST['cadastrar'])){
         $resultado = $pdo->prepare($sql);
         $resultado->bindValue("marca", $marca);
         $resultado->execute();
-        header('Location: ../index.php');
+        header('Location: ../index.php?cadastrado');
     }
 }

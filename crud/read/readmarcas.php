@@ -31,7 +31,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
   }
   #tabela{
-    width:150px ;
+    width:800px ;
   }
 </style>
 
@@ -67,7 +67,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </nav>
 
-<div class="d-flex justify-content-center align-itens-center">
+<div class="d-flex justify-content-center py-5">
     <?php
     if(count($marcas) > 0){
     ?>

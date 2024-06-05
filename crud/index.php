@@ -32,6 +32,10 @@ if (!isset($_SESSION['id'])) {
     width: 30px;
 
   }
+  #alert{
+    width: 350px;
+  }
+  
 </style>
 
 <body>
@@ -67,8 +71,17 @@ if (!isset($_SESSION['id'])) {
       </ul>
     </div>
   </nav>
-
-  <div class="d-flex flex-row justify-content-center">
+  <?php
+    if(isset($_GET['cadastrado'])){
+      echo "<div class='d-flex justify-content-center py-2'>
+      <div id='alert' class=' alert alert-success alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Marca cadastrada com sucesso!</strong> </div> 
+      </div>";
+    }
+  
+  ?>
+  <div class="d-flex flex-row justify-content-center py-3">
     <div class="px-4 py-5">
       <div class="card" style="width:300px">
         <img class="card-img-top" src="./img/marcas.jpg" alt="Card image" style="width:100%">

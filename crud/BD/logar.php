@@ -28,7 +28,7 @@ if(isset($_POST["btn"]) && !empty($_POST["email"]) && isset($_POST["email"]) && 
     }
 
     else{
-      echo  "Usuário, não cadastrado!";
+      header('Location: ../login.php?erro');
     }
 
 }

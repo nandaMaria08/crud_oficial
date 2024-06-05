@@ -18,7 +18,7 @@ if(isset($_POST['btn'])){
         $resultado->bindValue("nome", $nome);
         $resultado->bindValue("senha", $senha);
         $resultado->execute();
-         header('Location:../login.php');
+         header('Location:../login.php?sucesso');
       }
     else{
         header('Location: cadastro.php');
