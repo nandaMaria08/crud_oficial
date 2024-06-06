@@ -55,7 +55,7 @@ if (!isset($_SESSION['id'])) {
         </li>
       </ul>
     </div>
-    <div class="dropdown px-3">
+    <div class="dropdown px-4">
       <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown">
         <?php
         echo "<div class='px-2'></div>" . $_SESSION['nome'];
@@ -73,7 +73,7 @@ if (!isset($_SESSION['id'])) {
   </nav>
   <?php
     if(isset($_GET['cadastrado'])){
-      echo "<div class='d-flex justify-content-center py-2'>
+      echo "<div class='d-flex justify-content-center pt-4'>
       <div id='alert' class=' alert alert-success alert-dismissible'>
       <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
       <strong>Marca cadastrada com sucesso!</strong> </div> 
@@ -81,8 +81,8 @@ if (!isset($_SESSION['id'])) {
     }
   
   ?>
-  <div class="d-flex flex-row justify-content-center py-3">
-    <div class="px-4 py-5">
+  <div class="d-flex flex-row justify-content-center ">
+    <div class="px-4 py-3">
       <div class="card" style="width:300px">
         <img class="card-img-top" src="./img/marcas.jpg" alt="Card image" style="width:100%">
         <div class="card-body">
@@ -116,7 +116,7 @@ if (!isset($_SESSION['id'])) {
       </div>
     </div>
     
-    <div class="px-4 py-5">
+    <div class="px-4 py-3">
       <div class="card " style="width:300px">
         <img class="card-img-top" src="./img/cosmeticos.jpg" alt="Card image" style="width:100%">
         <div class="card-body">
@@ -154,7 +154,7 @@ if (!isset($_SESSION['id'])) {
     </div>
 
 
-    <div class="px-4 py-5">
+    <div class="px-4 py-3">
       <div class="card " style="width:300px">
         <img class="card-img-top" src="./img/relatorio.jpg" alt="Card image" style="width:100%">
         <div class="card-body">
@@ -170,6 +170,13 @@ if (!isset($_SESSION['id'])) {
     </div>
 
   </div>
+    
+  <footer class="footer fixed-bottom">
+    <div class="text-center text-white p-3" style="background-color: brown;">
+          © 2020 Copyright:
+    </div>
+  </footer>
+
 
 </body>
 
