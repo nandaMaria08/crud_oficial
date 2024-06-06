@@ -1,6 +1,9 @@
 <?php
 session_start();
 require "../conexao.php";
+if (!isset($_SESSION['id'])) {
+  header('Location: ../login.php');
+}
 ?>
 
 <!DOCTYPE html>

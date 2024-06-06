@@ -1,6 +1,9 @@
 <?php
 session_start();
 require "../conexao.php";
+if (!isset($_SESSION['id'])) {
+  header('Location: ../login.php');
+}
 
 $sql = "SELECT * FROM marcas";
 $resultado = $pdo->prepare($sql);
