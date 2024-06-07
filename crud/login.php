@@ -31,12 +31,18 @@
           ?>
 
             <div id="card" class=" bg-white container rounded shadow col col-lg-4 col-md-6 col-sm-8 ">
+              
               <div class=" d-flex flex-column justify-content-center align-items-center" >
                 <img class="logo" src=".//img/logo_alargada.png" alt="">
               </div>
+              <?php
+              if(isset($_GET['camposvazios'])){
+                echo "<div class='text-center text-danger'> Preencha todos os campos!</div>";
+              }
+              ?>
               <div class=" px-5">
                 <label class="form-label" for="">Email</label>
-                <input class="border border-dark rounded form-control " type="text" name="email" placeholder="E-mail*" required> 
+                <input class="border border-dark rounded form-control " type="text" name="email" placeholder="E-mail*" required > 
                 <p class="invalid-feedback m-0">
                   Este campo é obrigatório!
                 </p> <br>
@@ -52,12 +58,12 @@
               <div class="py-1" >
                 <p class="py-2 text-center" >Não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
               </div>
-              
             </div>
+
           </form>
         </div>
      </div> 
-  
+
   <script>
     (() => {
     'use strict'

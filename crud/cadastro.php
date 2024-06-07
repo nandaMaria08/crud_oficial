@@ -18,6 +18,14 @@
 
     <div  class="vh-100 d-flex justify-content-center align-items-center " >
         <form action="BD/cadastrar.php" method="post" class="needs-validation" novalidate>
+            <?php
+            if(isset($_GET['senhaincorreta'])){
+                echo  "<div class='alert alert-danger alert-dismissible'>
+                <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                <strong>Senha incorreta!</strong> Tente novamente.
+              </div>";
+               }
+            ?>
             <div id="card" class="rounded py-2 px-5 col col-lg-4 col-md-6 col-sm-8">
                 <h1 style="text-align:center;">Cadastro de Usuário</h1>
                 <div>

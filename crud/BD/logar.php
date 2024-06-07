@@ -26,10 +26,14 @@ if(isset($_POST["btn"]) && !empty($_POST["email"]) && isset($_POST["email"]) && 
 
         header('Location: ../index.php');
     }
-
+    
     else{
       header('Location: ../login.php?erro');
     }
 
+}
+
+elseif(empty($_POST["email"]) || empty($_POST["senha"])){
+  header('Location: ../login.php?camposvazios');
 }
 ?>

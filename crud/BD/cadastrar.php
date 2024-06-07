@@ -19,9 +19,11 @@ if(isset($_POST['btn'])){
         $resultado->bindValue("senha", $senha);
         $resultado->execute();
          header('Location:../login.php?sucesso');
+
+         
       }
     else{
-        header('Location: cadastro.php');
+        header('Location:../cadastro.php?senhaincorreta');
      }
    
         
