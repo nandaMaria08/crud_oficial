@@ -173,7 +173,7 @@ if (!isset($_SESSION['id'])) {
     
   <footer class="footer fixed-bottom">
     <div class="text-center text-white p-3" style="background-color: brown;">
-          © 2020 Copyright:
+          © 2024 Copyright
     </div>
   </footer>
 
