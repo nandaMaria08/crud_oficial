@@ -25,8 +25,10 @@ if(isset($_POST['btn'])){
     else{
         header('Location:../cadastro.php?senhaincorreta');
      }
-   
-        
+
 }
 }
+elseif(empty($_POST["usuario"]) || empty($_POST["email"]) || empty($_POST["nome"]) || empty($_POST["telefone"]) || empty($_POST["senha"]) || empty($_POST["confirma_senha"])){
+   header('Location: ../cadastro.php?camposvazios');
+ }
 ?>

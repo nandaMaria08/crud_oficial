@@ -28,6 +28,11 @@
             ?>
             <div id="card" class="rounded py-2 px-5 col col-lg-4 col-md-6 col-sm-8">
                 <h1 style="text-align:center;">Cadastro de Usuário</h1>
+                <?php
+                    if(isset($_GET['camposvazios'])){
+                        echo "<div class='text-center text-danger py-2 px-2'> Preencha todos os campos!</div>";
+                    }
+              ?>
                 <div>
                     <label class="form-label" for="">Nome do usuario</label> 
                     <input class="border border-dark rounded form-control xl-6 " type="text" name="usuario" required>
