@@ -70,6 +70,17 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </nav>
 
+<?php
+if(isset($_GET['marcadeletada'])){
+  echo "<div class='d-flex justify-content-center pt-4'>
+  <div id='alert' class=' alert alert-danger alert-dismissible'>
+  <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+  <strong>Marca deletada!</strong> </div> 
+  </div>";
+}
+
+?>
+
 <div class="d-flex justify-content-center py-5">
     <?php
     if(count($marcas) > 0){
@@ -80,6 +91,8 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
           <tr>
             <th>Id</th>
             <th>Marca</th>
+            <th>Ações</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -88,6 +101,41 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
               echo "<tr>";
               echo "<td>" . $marca['id'] . "</td>";
               echo "<td>" . $marca['marca'] . "</td>";
+              echo "<td> 
+              <form method='post' action='../delete/deletemarca.php'>
+                <input type='hidden' name='id' value='" .$marca['id'] ."'/>
+                <button type='submit' class='btn btn-danger' >Deletar</button>
+              </form>
+              </td>";
+              echo "<td> 
+              <form method='post' action='../update/updatemarca.php'>
+                <input type='hidden' name='id' value='" .$marca['id'] ."'/>
+                <input type='hidden' name='id' value='" .$marca['marca'] ."'/>
+                <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#myModal'>Atualizar</button>
+                <div class='modal' id='myModal'>
+          <div class='modal-dialog'>
+            <div class='modal-content'>
+
+              <div class='modal-header'>
+                <h4 class='modal-title'>Atualizar marca</h4>
+                <button type='button' class='btn-close' data-bs-dismiss='modal'></button>
+              </div>
+
+              <div class='modal-body'>
+                <form action='../update/updatemarca.php' method='post'>
+                  <input type='hidden' name='id' value='" .$marca['id'] ."'/>
+                  <label for='' class='label-control'>Marca</label>
+                  <input type='text' name='marca' class='form-control' value='" .$marca['marca'] ."'>
+                  <div class='modal-footer'>
+                    <button name='atualizar' type='submit' class='btn btn-danger' data-bs-dismiss='modal'>Atualizar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+              </form>
+              </td>";
               echo "</tr>";
             
             }
@@ -101,10 +149,9 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
       }
       ?>
 </div>
-
 <footer class="footer fixed-bottom">
     <div class="text-center text-white p-3" style="background-color: brown;">
-          © 2024 Copyright
+          © 2024 Sistemas 2
     </div>
   </footer>
 
