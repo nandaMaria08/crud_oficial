@@ -25,7 +25,7 @@
               if(isset($_GET['erro'])){
                echo  "<div class='alert alert-danger alert-dismissible'>
                <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-               <strong>Usuário não cadastrado!</strong> Tente novamente.
+               <strong>Usuário e/ou senha incorreto(s)!</strong> Tente novamente.
              </div>";
               }
           ?>

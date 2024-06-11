@@ -152,23 +152,38 @@ if (!isset($_SESSION['id'])) {
                         <input type="text" class="form-control border border-dark rounded"  name="preco" >
                         <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
                      </div>
-                    <div class="col col-lg-6 col-md-12 col-sm-12">
-                        <label class="form-label" for="">Marca</label>
-                        <input type="tel" class="form-control border border-dark rounded" name="marca" >
+                     <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Data de validade</label>
+                        <input type="tel" class="form-control border border-dark rounded" name="validade" >
                         <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
-                     </div>
+                     </div> 
+
                  </div>
                  <div class="row">
                     <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Quantidade</label>
-                        <input type="text" class="form-control border border-dark rounded"  name="preco" >
+                        <input type="text" class="form-control border border-dark rounded"  name="quantidade" >
                         <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
                      </div>
-                    <div class="col col-lg-6 col-md-12 col-sm-12">
-                        <label class="form-label" for="">Data de validade</label>
-                        <input type="tel" class="form-control border border-dark rounded" name="marca" >
+                     <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Marca</label>
+                        <select class="form-control border border-dark rounded" name="marca">
+                          <option disabled selected value="">Selecione a Marca</option>
+                            <?php
+                              $sql = "SELECT * FROM marcas";
+                              $resultado = $pdo->prepare($sql);
+                              $resultado->execute();
+                              $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
+                              if(count($marcas) > 0){
+                                foreach($marcas as $marca){
+                                    echo "<option value='" . $marca['id'] . "'>". $marca['id'] . " - " . $marca['marca'] . "</    option>";
+                                  }
+                             }
+                            ?>
+                        </select>
                         <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
                      </div>
+
                  </div>
 
                 </form>
