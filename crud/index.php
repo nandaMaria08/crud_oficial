@@ -122,12 +122,12 @@ if (!isset($_SESSION['id'])) {
         <div class="card-body">
           <h4 class="card-title">Cadastrar Produtos</h4>
           <p class="card-text">Cadastre aqui os produtos disponíveis na sua loja!</p>
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
-            Cadastrar Produto
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal2">
+            Cadastrar produto
           </button>
         </div>
-        <div class="modal" id="myModal">
-          <div class="modal-dialog">
+        <div class="modal" id="myModal2">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
               <div class="modal-header">
@@ -136,19 +136,53 @@ if (!isset($_SESSION['id'])) {
               </div>
 
               <div class="modal-body">
-                <form action="" method="post">
-                  <label for="" class="label-control">Produto</label>
-                  <input type="text" name="marca" class="form-control">
-                  <label for="" class="label-control">Produto</label>
-                  <input type="text" name="marca" class="form-control">
-                  <div class="modal-footer">
-                    <button name="cadastrar" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar</button>
-                  </div>
+                <form action="./create/createproduto.php" method="post">
+                  
+                  <div>
+                    <label class="form-label" for="">Nome do produto</label> 
+                    <input class="border border-dark rounded form-control xl-6 " type="text" name="produto" >
+                    <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                    <label class="form-label" for="">Descrição</label> 
+                    <input class="border border-dark rounded form-control xl-6" type="text" name="descricao" >
+                    <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                 </div>
+                 <div class="row">
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Preço</label>
+                        <input type="text" class="form-control border border-dark rounded"  name="preco" >
+                        <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                     </div>
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Marca</label>
+                        <input type="tel" class="form-control border border-dark rounded" name="marca" >
+                        <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                     </div>
+                 </div>
+                 <div class="row">
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Quantidade</label>
+                        <input type="text" class="form-control border border-dark rounded"  name="preco" >
+                        <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                     </div>
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Data de validade</label>
+                        <input type="tel" class="form-control border border-dark rounded" name="marca" >
+                        <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                     </div>
+                 </div>
+
                 </form>
               </div>
+
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+
             </div>
           </div>
         </div>
+
 
       </div>
     </div>
