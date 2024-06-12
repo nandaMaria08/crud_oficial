@@ -23,18 +23,28 @@ if (!isset($_SESSION['id'])) {
   }
 
   #logo {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 80px;
   }
-
+  
   #user {
     height: 30px;
     width: 30px;
-
   }
   #alert{
     width: 350px;
   }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ocultar botão de numero no firefox, mas está mostrando erro */
+/* input[type=number] {
+  -moz-appearance: textfield;
+} */
   
 </style>
 
@@ -63,10 +73,6 @@ if (!isset($_SESSION['id'])) {
         <img src="./img/usuario.avif" class="rounded-circle " id="user" alt="">
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="">Excluir conta</a></li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
         <li><a class="dropdown-item" href="./BD/logout.php">Sair</a></li>
       </ul>
     </div>
@@ -81,8 +87,8 @@ if (!isset($_SESSION['id'])) {
     }
   
   ?>
-  <div class="d-flex flex-row justify-content-center ">
-    <div class="px-4 py-3">
+  <div class="d-flex flex-row justify-content-center py-2">
+    <div class="px-4 py-2">
       <div class="card" style="width:300px">
         <img class="card-img-top" src="./img/marcas.jpg" alt="Card image" style="width:100%">
         <div class="card-body">
@@ -101,12 +107,12 @@ if (!isset($_SESSION['id'])) {
             </div>
             <div class="modal-body">
               <form action="./create/createmarca.php" method="post">
-                        <label for="" class="label-control">Marca</label>
-                        <input type="text" name="marca" class="form-control">
-                        <div class="modal-footer">
-                          <button name="cadastrar" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar</button>
-                        </div>
-                      </form>
+                 <label for="" class="label-control">Marca</label>
+                 <input type="text" name="marca" class="form-control">
+                 <div class="modal-footer">
+                    <button name="cadastrar" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar</button>
+                 </div>
+              </form>
             </div>
           </div>
         </div>
@@ -115,7 +121,7 @@ if (!isset($_SESSION['id'])) {
       </div>
     </div>
     
-    <div class="px-4 py-3">
+    <div class="px-4 py-2">
       <div class="card " style="width:300px">
         <img class="card-img-top" src="./img/cosmeticos.jpg" alt="Card image" style="width:100%">
         <div class="card-body">
@@ -148,12 +154,12 @@ if (!isset($_SESSION['id'])) {
                  <div class="row">
                     <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Preço</label>
-                        <input type="text" class="form-control border border-dark rounded"  name="preco" >
+                        <input type="number" id="preco" name="preco" class="preco form-control border border-dark rounded" >
                         <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
                      </div>
                      <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Data de validade</label>
-                        <input type="tel" class="form-control border border-dark rounded" name="validade" >
+                        <input type="date" class="form-control border border-dark rounded" name="validade" >
                         <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
                      </div> 
 
@@ -161,12 +167,12 @@ if (!isset($_SESSION['id'])) {
                  <div class="row">
                     <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Quantidade</label>
-                        <input type="text" class="form-control border border-dark rounded"  name="quantidade" >
+                        <input type="number" class="form-control border border-dark rounded"  name="quantidade" >
                         <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
                      </div>
                      <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Marca</label>
-                        <select class="form-control border border-dark rounded" name="marca">
+                        <select class="form-select border border-dark rounded" name="marca">
                           <option disabled selected value="">Selecione a Marca</option>
                             <?php
                               $sql = "SELECT * FROM marcas";
@@ -184,14 +190,14 @@ if (!isset($_SESSION['id'])) {
                      </div>
 
                  </div>
-
+                <div class="modal-footer">
+                    <button name="cadastrar_produto" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar produto</button>
+                </div>
                 </form>
               </div>
 
               
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-              </div>
+              
 
             </div>
           </div>
@@ -202,7 +208,7 @@ if (!isset($_SESSION['id'])) {
     </div>
 
 
-    <div class="px-4 py-3">
+    <div class="px-4 py-2">
       <div class="card " style="width:300px">
         <img class="card-img-top" src="./img/relatorio.jpg" alt="Card image" style="width:100%">
         <div class="card-body">

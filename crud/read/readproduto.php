@@ -20,8 +20,8 @@ if (!isset($_SESSION['id'])) {
     background-color: brown;
   }
   #logo{
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 80px;
   }
   #user{
     height: 30px;
@@ -46,7 +46,7 @@ if (!isset($_SESSION['id'])) {
         <a class="nav-link text-white" href="./readmarcas.php">Marcas</a>
       </li>
     </ul>
-  </div>
+  </div> 
   <div class="dropdown px-3">
     <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown">
     <?php

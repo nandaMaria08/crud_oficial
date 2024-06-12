@@ -25,8 +25,8 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
     background-color: brown;
   }
   #logo{
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 80px;
   }
   #user{
     height: 30px;
@@ -39,7 +39,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
 </style>
 
 <body>
-<nav id="nav" class="container-fluid navbar navbar-expand-lg navbar-light ">
+<nav id="nav" class="container-fluid navbar navbar-expand-lg navbar-light">
   <a class="navbar-brand" href="../index.php"><img id="logo" src="../img/logoalargada.png" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
@@ -69,24 +69,27 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
     </ul>
   </div>
 </nav>
+<div >
+  <?php
+    if(isset($_GET['marcadeletada'])){
+      echo "<div class='d-flex justify-content-center mt-3 '>
+      <div id='alert' class=' alert alert-danger alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Marca deletada!</strong> </div> 
+      </div>";
+    }
 
-<?php
-if(isset($_GET['marcadeletada'])){
-  echo "<div class='d-flex justify-content-center pt-4'>
-  <div id='alert' class=' alert alert-danger alert-dismissible'>
-  <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-  <strong>Marca deletada!</strong> </div> 
-  </div>";
-}
+  ?>
 
-?>
+</div>
 
-<div class="d-flex justify-content-center py-5">
+
+<div class="d-flex justify-content-center py-5 mb-5">
     <?php
     if(count($marcas) > 0){
     ?>
 
-    <table id="tabela" class="table">
+    <table id="tabela" class="table table-hover">
         <thead>
           <tr>
             <th>Id</th>
