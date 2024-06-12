@@ -40,7 +40,7 @@ if (!isset($_SESSION['id'])) {
 
 <body>
   <nav id="nav" class="container-fluid navbar navbar-expand-lg navbar-light ">
-    <a class="navbar-brand" href="./index.php"><img id="logo" src="./img/logo.png" alt=""></a>
+    <a class="navbar-brand" href="./index.php"><img id="logo" src="./img/logoalargada.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -93,26 +93,25 @@ if (!isset($_SESSION['id'])) {
           </button>
         </div>
         <div class="modal" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-
-              <div class="modal-header">
-                <h4 class="modal-title">Cadastrar marca</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-
-              <div class="modal-body">
-                <form action="./create/createmarca.php" method="post">
-                  <label for="" class="label-control">Marca</label>
-                  <input type="text" name="marca" class="form-control">
-                  <div class="modal-footer">
-                    <button name="cadastrar" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar</button>
-                  </div>
-                </form>
-              </div>
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Cadastrar marca</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <form action="./create/createmarca.php" method="post">
+                        <label for="" class="label-control">Marca</label>
+                        <input type="text" name="marca" class="form-control">
+                        <div class="modal-footer">
+                          <button name="cadastrar" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar</button>
+                        </div>
+                      </form>
             </div>
           </div>
         </div>
+</div>
+
       </div>
     </div>
     

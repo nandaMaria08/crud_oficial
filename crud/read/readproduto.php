@@ -32,7 +32,7 @@ if (!isset($_SESSION['id'])) {
 
 <body>
 <nav id="nav" class="container-fluid navbar navbar-expand-lg navbar-light ">
-  <a class="navbar-brand" href="../index.php"><img id="logo" src="../img/logo.png" alt=""></a>
+  <a class="navbar-brand" href="../index.php"><img id="logo" src="../img/logoalargada.png" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
