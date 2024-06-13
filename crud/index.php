@@ -35,6 +35,11 @@ if (!isset($_SESSION['id'])) {
     width: 350px;
   }
 
+  #sair{
+    height: 20px;
+    width: 20px;
+  }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -73,7 +78,7 @@ input::-webkit-inner-spin-button {
         <img src="./img/usuario.avif" class="rounded-circle " id="user" alt="">
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="./BD/logout.php">Sair</a></li>
+        <li><a class="dropdown-item" href="./BD/logout.php">Sair <img id="sair" src="./img/sair.png" alt=""></a></li>
       </ul>
     </div>
   </nav>
@@ -83,6 +88,14 @@ input::-webkit-inner-spin-button {
       <div id='alert' class=' alert alert-success alert-dismissible'>
       <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
       <strong>Marca cadastrada com sucesso!</strong> </div> 
+      </div>";
+    }
+
+    if(isset($_GET['produtocadastrado'])){
+      echo "<div class='d-flex justify-content-center pt-4'>
+      <div id='alert' class=' alert alert-success alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Produto cadastrado com sucesso!</strong> </div> 
       </div>";
     }
   
@@ -108,7 +121,7 @@ input::-webkit-inner-spin-button {
             <div class="modal-body">
               <form action="./create/createmarca.php" method="post">
                  <label for="" class="label-control">Marca</label>
-                 <input type="text" name="marca" class="form-control">
+                 <input type="text" name="marca" class="form-control border border-dark">
                  <div class="modal-footer">
                     <button name="cadastrar" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar</button>
                  </div>
@@ -127,11 +140,11 @@ input::-webkit-inner-spin-button {
         <div class="card-body">
           <h4 class="card-title">Cadastrar Produtos</h4>
           <p class="card-text">Cadastre aqui os produtos disponíveis na sua loja!</p>
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal2">
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalProdutos">
             Cadastrar produto
           </button>
         </div>
-        <div class="modal" id="myModal2">
+        <div class="modal" id="modalProdutos">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -172,7 +185,7 @@ input::-webkit-inner-spin-button {
                      </div>
                      <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Marca</label>
-                        <select class="form-select border border-dark rounded" name="marca">
+                        <select class="form-select border border-dark rounded" name="id_marca">
                           <option disabled selected value="">Selecione a Marca</option>
                             <?php
                               $sql = "SELECT * FROM marcas";
@@ -181,7 +194,7 @@ input::-webkit-inner-spin-button {
                               $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
                               if(count($marcas) > 0){
                                 foreach($marcas as $marca){
-                                    echo "<option value='" . $marca['id'] . "'>". $marca['id'] . " - " . $marca['marca'] . "</    option>";
+                                    echo "<option value='" . $marca['id_marca'] . "'>" . $marca['marca'] . "</    option>";
                                   }
                              }
                             ?>

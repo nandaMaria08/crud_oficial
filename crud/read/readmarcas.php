@@ -36,6 +36,10 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
   #tabela{
     width:800px ;
   }
+  #sair{
+    height: 20px;
+    width: 20px;
+  }
 </style>
 
 <body>
@@ -63,9 +67,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
         <img src="../img/usuario.avif" class="rounded-circle " id="user" alt="">
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="">Excluir conta</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="../BD/logout.php">Sair</a></li>
+      <li><a class="dropdown-item" href="../BD/logout.php">Sair <img id="sair" src="../img/sair.png" alt=""></a></li>
     </ul>
   </div>
 </nav>
@@ -102,17 +104,17 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
           <?php
             foreach($marcas as $marca){
               echo "<tr>";
-              echo "<td>" . $marca['id'] . "</td>";
+              echo "<td>" . $marca['id_marca'] . "</td>";
               echo "<td>" . $marca['marca'] . "</td>";
               echo "<td> 
               <form method='post' action='../delete/deletemarca.php'>
-                <input type='hidden' name='id' value='" .$marca['id'] ."'/>
+                <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
                 <button type='submit' class='btn btn-danger' >Deletar</button>
               </form>
               </td>";
               echo "<td> 
               <form method='post' action='../update/updatemarca.php'>
-                <input type='hidden' name='id' value='" .$marca['id'] ."'/>
+                <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
                 <input type='hidden' name='id' value='" .$marca['marca'] ."'/>
                 <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#myModal'>Atualizar</button>
                 <div class='modal' id='myModal'>
@@ -126,7 +128,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
               <div class='modal-body'>
                 <form action='../update/updatemarca.php' method='post'>
-                  <input type='hidden' name='id' value='" .$marca['id'] ."'/>
+                  <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
                   <label for='' class='label-control'>Marca</label>
                   <input type='text' name='marca' class='form-control' value='" .$marca['marca'] ."'>
                   <div class='modal-footer'>

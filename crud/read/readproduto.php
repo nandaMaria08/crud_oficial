@@ -4,6 +4,11 @@ require "../conexao.php";
 if (!isset($_SESSION['id'])) {
   header('Location: ../login.php');
 }
+
+$sql = "SELECT p.produto, p.descricao,p.preco, p.validade, p.quantidade, m.id_marca, m.marca as marcas from produtos as p join marcas as m on p.id_marca = m.id_marca;";
+$resultado = $pdo->prepare($sql);
+$resultado->execute();
+$produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +32,13 @@ if (!isset($_SESSION['id'])) {
     height: 30px;
     width: 30px;
 
+  }
+  #tabela{
+    width:800px ;
+  }
+  #sair{
+    height: 20px;
+    width: 20px;
   }
 </style>
 
@@ -55,12 +67,54 @@ if (!isset($_SESSION['id'])) {
         <img src="../img/usuario.avif" class="rounded-circle " id="user" alt="">
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="">Excluir conta</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="../BD/logout.php">Sair</a></li>
+      <li><a class="dropdown-item" href="../BD/logout.php">Sair <img id="sair" src="../img/sair.png" alt=""></a></li>
     </ul>
   </div>
 </nav>
+
+
+<div class="d-flex justify-content-center py-5 mb-5">
+    <?php
+    if(count($produtos) > 0){
+    ?>
+
+    <table id="tabela" class="table table-hover">
+        <thead>
+          <tr>
+            <!-- <th>Id</th> -->
+            <th>Produto</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Validade</th>
+            <th>Quantidade</th>
+            <th>Marca</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            foreach($produtos as $produto){
+              echo "<tr>";
+              // echo "<td>" . $produto['id_produto'] . "</td>";
+              echo "<td>" . $produto['produto'] . "</td>";
+              echo "<td>" . $produto['descricao'] . "</td>";
+              echo "<td>" . $produto['preco'] . "</td>";
+              echo "<td>" . $produto['validade'] . "</td>";
+              echo "<td>" . $produto['quantidade'] . "</td>";
+              echo "<td>" . $produto['id_marca'] . "</td>";
+            }
+
+          ?>
+
+        </tbody>
+    </table>
+
+    <?php
+      }else{
+        echo "<h3> Não existe nenhuma marca cadastrada!<h3>" ;
+      }
+      ?>
+</div>    
 
 <footer class="footer fixed-bottom">
     <div class="text-center text-white p-3" style="background-color: brown;">

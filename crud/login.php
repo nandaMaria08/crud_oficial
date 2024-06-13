@@ -40,7 +40,7 @@
                 echo "<div class='text-center text-danger'> Preencha todos os campos!</div>";
               }
               ?>
-              <div class=" px-5">
+              <div class="px-5">
                 <label class="form-label" for="">Email</label>
                 <input class="border border-dark rounded form-control " type="text" name="email" placeholder="E-mail*" required > 
                 <p class="invalid-feedback m-0">
