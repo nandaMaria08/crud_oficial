@@ -100,7 +100,8 @@ input::-webkit-inner-spin-button {
     }
   
   ?>
-  <div class="d-flex flex-row justify-content-center py-2">
+  
+  <div class="d-flex flex-row justify-content-center py-2 ">
     <div class="px-4 py-2">
       <div class="card" style="width:300px">
         <img class="card-img-top" src="./img/marcas.jpg" alt="Card image" style="width:100%">
@@ -129,7 +130,7 @@ input::-webkit-inner-spin-button {
             </div>
           </div>
         </div>
-</div>
+    </div>
 
       </div>
     </div>

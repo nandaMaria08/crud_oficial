@@ -116,8 +116,8 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
               <form method='post' action='../update/updatemarca.php'>
                 <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
                 <input type='hidden' name='id' value='" .$marca['marca'] ."'/>
-                <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#myModal'>Atualizar</button>
-                <div class='modal' id='myModal'>
+                <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modal_update'>Atualizar</button>
+                <div class='modal' id='modal_update'>
           <div class='modal-dialog'>
             <div class='modal-content'>
 
