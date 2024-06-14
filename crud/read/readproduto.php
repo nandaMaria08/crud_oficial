@@ -5,7 +5,7 @@ if (!isset($_SESSION['id'])) {
   header('Location: ../login.php');
 }
 
-$sql = "SELECT p.produto, p.descricao,p.preco, p.validade, p.quantidade, m.id_marca, m.marca as marcas from produtos as p join marcas as m on p.id_marca = m.id_marca;";
+$sql = "SELECT p.produto, p.descricao,p.preco, p.validade, p.quantidade, m.id_marca, m.marca as marcas from produtos as p join marcas as m on p.id_marca = m.id_marca order by p.produto ASC;";
 $resultado = $pdo->prepare($sql);
 $resultado->execute();
 $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -98,10 +98,10 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
               // echo "<td>" . $produto['id_produto'] . "</td>";
               echo "<td>" . $produto['produto'] . "</td>";
               echo "<td>" . $produto['descricao'] . "</td>";
-              echo "<td>" . $produto['preco'] . "</td>";
+              echo "<td>". 'R$'. $produto['preco'] . "</td>";
               echo "<td>" . $produto['validade'] . "</td>";
               echo "<td>" . $produto['quantidade'] . "</td>";
-              echo "<td>" . $produto['id_marca'] . "</td>";
+              echo "<td>" . $produto['marcas'] . "</td>";
             }
 
           ?>

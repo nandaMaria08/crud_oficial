@@ -33,7 +33,7 @@
             <div id="card" class=" bg-white container rounded shadow col col-lg-4 col-md-6 col-sm-8 ">
               
               <div class=" d-flex flex-column justify-content-center align-items-center" >
-                <img class="logo" src=".//img/logo_alargada.png" alt="">
+                <img class="logo" src="./img/logoalargada.png" alt="">
               </div>
               <?php
               if(isset($_GET['camposvazios'])){
