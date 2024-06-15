@@ -67,8 +67,27 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
         <img src="../img/usuario.avif" class="rounded-circle " id="user" alt="">
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="../BD/logout.php">Sair <img id="sair" src="../img/sair.png" alt=""></a></li>
-    </ul>
+        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalSair" >Sair <img id="sair" src="../img/sair.png" alt=""></a></li>
+      </ul>
+      <div class="modal" id="modalSair">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            
+            <div class="modal-body">
+              Você realmente deseja sair dessa página?
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <form action="../BD/logout.php" method="post">
+                <button type="submit" class="btn btn-danger" >Sair</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -81,7 +100,7 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
     <table id="tabela" class="table table-hover">
         <thead>
           <tr>
-            <!-- <th>Id</th> -->
+            
             <th>Produto</th>
             <th>Descrição</th>
             <th>Preço</th>

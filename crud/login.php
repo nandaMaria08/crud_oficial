@@ -41,12 +41,12 @@
               }
               ?>
               <div class="px-5">
-                <label class="form-label" for="">Email</label>
+                <label class="form-label" for="">Email<span class="text-danger">*</span></label>
                 <input class="border border-dark rounded form-control " type="text" name="email" placeholder="E-mail*" required > 
                 <p class="invalid-feedback m-0">
                   Este campo é obrigatório!
                 </p> <br>
-                <label class="form-label" for="">Senha</label>
+                <label class="form-label" for="">Senha<span class="text-danger">*</span></label>
                 <input class="border border-dark rounded form-control " type="password" name="senha" placeholder="Senha*" required> 
                 <p class="invalid-feedback m-0">
                   Este campo é obrigatório!

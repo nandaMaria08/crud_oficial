@@ -10,4 +10,8 @@ if(isset($_POST['cadastrar'])){
         $resultado->execute();
         header('Location: ../index.php?cadastrado');
     }
+
+    elseif(empty($_POST['marca'])){
+        header('Location:../index.php?camposnpreenchidos');
+    }
 }

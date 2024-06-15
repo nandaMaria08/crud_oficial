@@ -70,7 +70,7 @@ input::-webkit-inner-spin-button {
         </li>
       </ul>
     </div>
-    <div class="dropdown px-4">
+    <div class="dropdown px-3">
       <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown">
         <?php
         echo "<div class='px-2'></div>" . $_SESSION['nome'];
@@ -117,6 +117,15 @@ input::-webkit-inner-spin-button {
       </div>";
     }
   
+   
+    if(isset($_GET['camposnpreenchidos'])){
+       echo "<div class='d-flex justify-content-center pt-4'>
+      <div  class=' alert alert-danger alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Preencha os campos do formulário acessado!</strong> </div> 
+      </div>";
+   }
+              
   ?>
   
   <div class="d-flex flex-row justify-content-center py-2 ">
@@ -138,11 +147,13 @@ input::-webkit-inner-spin-button {
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-              <form action="./create/createmarca.php" method="post">
-                 <label for="" class="label-control">Marca</label>
-                 <input type="text" name="marca" class="form-control border border-dark">
+              <form action="./create/createmarca.php" method="post" class="needs-validation" novalidate>
+               
+                 <label for="" class="label-control">Marca <span class="text-danger">*</span></label>
+                 <input type="text" name="marca" class="form-control border border-dark" required>
+                 <div class="invalid-feedback"> Este campo é obrigatório!</div> 
                  <div class="modal-footer">
-                    <button name="cadastrar" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar</button>
+                    <button name="cadastrar" type="submit" class="btn btn-danger">Cadastrar</button>
                  </div>
               </form>
             </div>
@@ -173,38 +184,38 @@ input::-webkit-inner-spin-button {
               </div>
 
               <div class="modal-body">
-                <form action="./create/createproduto.php" method="post">
+                <form action="./create/createproduto.php" method="post" class="needs-validation" novalidate>
                   
                   <div>
                     <label class="form-label" for="">Nome do produto</label> 
-                    <input class="border border-dark rounded form-control xl-6 " type="text" name="produto" >
-                    <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                    <input class="border border-dark rounded form-control xl-6 " type="text" name="produto" required>
+                     <div class="invalid-feedback"> Este campo é obrigatório!</div> 
                     <label class="form-label" for="">Descrição</label> 
-                    <input class="border border-dark rounded form-control xl-6" type="text" name="descricao" >
-                    <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                    <input class="border border-dark rounded form-control xl-6" type="text" name="descricao" required>
+                    <div class="invalid-feedback"> Este campo é obrigatório!</div> 
                  </div>
                  <div class="row">
                     <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Preço</label>
-                        <input type="number" id="preco" name="preco" class="preco form-control border border-dark rounded" >
-                        <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                        <input type="number" id="preco" name="preco" class="preco form-control border border-dark rounded" required>
+                        <div class="invalid-feedback"> Este campo é obrigatório!</div> 
                      </div>
                      <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Data de validade</label>
-                        <input type="date" class="form-control border border-dark rounded" name="validade" >
-                        <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                        <input type="date" class="form-control border border-dark rounded" name="validade" required >
+                        <div class="invalid-feedback"> Este campo é obrigatório!</div> 
                      </div> 
 
                  </div>
                  <div class="row">
                     <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Quantidade</label>
-                        <input type="number" class="form-control border border-dark rounded"  name="quantidade" >
-                        <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                        <input type="number" class="form-control border border-dark rounded"  name="quantidade" required >
+                        <div class="invalid-feedback"> Este campo é obrigatório!</div> 
                      </div>
                      <div class="col col-lg-6 col-md-12 col-sm-12">
                         <label class="form-label" for="">Marca</label>
-                        <select class="form-select border border-dark rounded" name="id_marca">
+                        <select class="form-select border border-dark rounded" name="id_marca" required>
                           <option disabled selected value="">Selecione a Marca</option>
                             <?php
                               $sql = "SELECT * FROM marcas";
@@ -218,12 +229,12 @@ input::-webkit-inner-spin-button {
                              }
                             ?>
                         </select>
-                        <!-- <div class="invalid-feedback"> Este campo é obrigatório!</div> -->
+                        <div class="invalid-feedback"> Este campo é obrigatório!</div> 
                      </div>
 
                  </div>
                 <div class="modal-footer">
-                    <button name="cadastrar_produto" type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cadastrar produto</button>
+                    <button name="cadastrar_produto" type="submit" class="btn btn-danger" >Cadastrar produto</button>
                 </div>
                 </form>
               </div>
@@ -263,7 +274,24 @@ input::-webkit-inner-spin-button {
     </div>
   </footer>
 
+<script>
+  (() => {
+  'use strict'
 
+  const forms = document.querySelectorAll('.needs-validation')
+
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 
 </html>

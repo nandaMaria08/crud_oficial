@@ -25,6 +25,9 @@ if(isset($_POST['cadastrar_produto'])){
 
       
     }
+    elseif(empty($_POST['produto']) || empty($_POST['descricao']) || empty($_POST['preco']) || empty($_POST['validade']) || empty($_POST['quantidade']) || empty($_POST['id_marca'])){
+        header('Location:../index.php?camposnpreenchidos');
+    }
 }
 
 ?>

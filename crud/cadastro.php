@@ -34,21 +34,21 @@
                     }
               ?>
                 <div>
-                    <label class="form-label" for="">Nome do usuario</label> 
+                    <label class="form-label" for="">Nome do usuario<span class="text-danger">*</span></label> 
                     <input class="border border-dark rounded form-control xl-6 " type="text" name="usuario" required>
                     <div class="invalid-feedback"> Este campo é obrigatório!</div>
-                    <label class="form-label" for="">E-mail</label> 
+                    <label class="form-label" for="">E-mail<span class="text-danger">*</span></label> 
                     <input class="border border-dark rounded form-control xl-6" type="text" name="email" required>
                     <div class="invalid-feedback"> Este campo é obrigatório!</div>
                 </div>
                 <div class="row">
                     <div class="col col-lg-6 col-md-12 col-sm-12">
-                        <label class="form-label" for="">Nome Social</label>
+                        <label class="form-label" for="">Nome Social<span class="text-danger">*</span></label>
                         <input type="text" class="form-control border border-dark rounded"  name="nome" required>
                         <div class="invalid-feedback"> Este campo é obrigatório!</div>
                      </div>
                     <div class="col col-lg-6 col-md-12 col-sm-12">
-                        <label class="form-label" for="">Telefone</label>
+                        <label class="form-label" for="">Telefone<span class="text-danger">*</span></label>
                         <input type="tel" class="form-control border border-dark rounded" placeholder="(xx) xxxxx-xxxx" name="telefone" required>
                         <div class="invalid-feedback"> Este campo é obrigatório!</div>
                      </div>
@@ -56,12 +56,12 @@
                </div>
                <div class="row">
                     <div class="col col-lg-6 col-md-12 col-sm-12">
-                        <label class="form-label" for="">Senha</label>
+                        <label class="form-label" for="">Senha<span class="text-danger">*</span></label>
                         <input type="text" class="form-control border border-dark rounded" id="senha" name="senha"  required>
                         <div class="invalid-feedback"> Este campo é obrigatório!</div>
                      </div>
                     <div class="col col-lg-6 col-md-12 col-sm-12">
-                        <label class="form-label" for="">Confirmar senha</label>
+                        <label class="form-label" for="">Confirmar senha<span class="text-danger">*</span></label>
                         <input type="password" class="form-control border border-dark rounded"  name="confirma_senha" required>
                         <div class="invalid-feedback"> Este campo é obrigatório!</div>
                      </div>
