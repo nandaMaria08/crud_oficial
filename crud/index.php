@@ -53,7 +53,7 @@ input::-webkit-inner-spin-button {
   
 </style>
 
-<body>
+<body >
   <nav id="nav" class="container-fluid navbar navbar-expand-lg navbar-light ">
     <a class="navbar-brand" href="./index.php"><img id="logo" src="./img/logoalargada.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
@@ -78,8 +78,26 @@ input::-webkit-inner-spin-button {
         <img src="./img/usuario.avif" class="rounded-circle " id="user" alt="">
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="./BD/logout.php">Sair <img id="sair" src="./img/sair.png" alt=""></a></li>
+        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalSair" >Sair <img id="sair" src="./img/sair.png" alt=""></a></li>
       </ul>
+      <div class="modal" id="modalSair">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            
+            <div class="modal-body">
+              Você realmente deseja sair dessa página?
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <form action="./BD/logout.php" method="post">
+                <button type="submit" class="btn btn-danger" >Sair</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
   <?php
