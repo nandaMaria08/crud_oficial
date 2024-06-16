@@ -33,9 +33,9 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
     width: 30px;
 
   }
-  #tabela{
+  /* #tabela{
     width:800px ;
-  }
+  } */
   #sair{
     height: 20px;
     width: 20px;

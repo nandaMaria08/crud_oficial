@@ -257,11 +257,59 @@ input::-webkit-inner-spin-button {
         <div class="card-body">
           <h4 class="card-title">Relatório</h4>
           <p class="card-text">Confira aqui, qual a marca dominante do seu estoque!</p>
-          <button type="button" class="btn btn-danger"  >
-            Confira o relatório
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalRelatorio">
+            Relatório
           </button>
         </div>
         
+        <div class="modal" id="modalRelatorio">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+      
+            <div class="modal-header">
+              <h4 class="modal-title">Relatório</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+      
+            <div class="modal-body">
+              <?php
+                $sql = "SELECT count(m.id_marca) as contIDcat, m.marca as marcas from produtos as p join marcas as m on p.id_marca = m.id_marca group by m.id_marca order by contIDcat desc;";
+                $resultado = $pdo->prepare($sql);
+                $resultado->execute();
+                $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
+              ?>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Marca</th>
+                    <th>Quantidade de Produtos</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <?php
+                  foreach($marcas as $marca){
+                    echo "<tr>";
+                    echo "<td>" . $marca['marcas'] . "</td>";
+                    echo "<td>" . $marca['contIDcat'] . " " .'produtos' . "</td>";
+                  }
+                  
+                  ?>
+                </tbody>
+
+              </table>
+            </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Sair</button>
+          </div>
+
+    </div>
+  </div>
+</div>
+
 
       </div>
     </div>
