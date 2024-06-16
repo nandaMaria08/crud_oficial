@@ -92,12 +92,12 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
 </nav>
 
 
-<div class="d-flex justify-content-center py-5 mb-5">
+<div class="d-flex justify-content-center py-5 mb-5 table-responsive-md">
     <?php
     if(count($produtos) > 0){
     ?>
 
-    <table id="tabela" class="table table-hover">
+    <table id="tabela" class="table table-hover ">
         <thead>
           <tr>
             
