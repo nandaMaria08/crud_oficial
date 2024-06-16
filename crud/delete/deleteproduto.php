@@ -4,10 +4,10 @@
         $id = $_POST['id'];
         $nome = $_POST['nome'];
 
-        $sql = "DELETE FROM marcas WHERE id_marca = :id";
+        $sql = "DELETE FROM produtos WHERE id_produto = :id";
         $resultado = $pdo->prepare($sql);
         $resultado->bindValue(":id", $id);
         $resultado->execute(); 
 
-        header("Location: ../read/readmarcas.php?nome_marca=$nome&id=$id&marcadeletada");
+        header("Location: ../read/readproduto.php?nome_produto=$nome&produtodeletado");
     }

@@ -5,7 +5,7 @@ if (!isset($_SESSION['id'])) {
   header('Location: ../login.php');
 }
 
-$sql = "SELECT p.produto, p.descricao,p.preco, p.validade, p.quantidade, m.id_marca, m.marca as marcas from produtos as p join marcas as m on p.id_marca = m.id_marca order by p.produto ASC;";
+$sql = "SELECT p.id_produto, p.produto, p.descricao,p.preco, p.validade, p.quantidade, m.id_marca, m.marca as marcas from produtos as p join marcas as m on p.id_marca = m.id_marca order by p.produto ASC;";
 $resultado = $pdo->prepare($sql);
 $resultado->execute();
 $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -91,6 +91,18 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </nav>
 
+<?php
+    if(isset($_GET['produtodeletado'])){
+      $nomeProduto = $_GET['nome_produto'];
+      echo "<div class='d-flex justify-content-center mt-3 '>
+      <div id='alert' class=' alert alert-danger alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Produto '$nomeProduto' deletado!</strong> </div> 
+      </div>";
+    }
+
+  ?>
+
 
 <div class="d-flex justify-content-center py-5 mb-5 table-responsive-md">
     <?php
@@ -121,6 +133,13 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
               echo "<td>" . $produto['validade'] . "</td>";
               echo "<td>" . $produto['quantidade'] . "</td>";
               echo "<td>" . $produto['marcas'] . "</td>";
+              echo "<td> 
+              <form method='post' action='../delete/deleteproduto.php'>
+                <input type='hidden' name='id' value='" .$produto['id_produto'] ."'/>
+                <input type='hidden' name='nome' value='" .$produto['produto'] ."'/>
+                <button type='submit' class='btn btn-danger' >Deletar</button>
+              </form>
+              </td>";
             }
 
           ?>

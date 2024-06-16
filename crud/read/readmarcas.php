@@ -93,10 +93,11 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
 <div >
   <?php
     if(isset($_GET['marcadeletada'])){
+      $nomeMarca = $_GET['nome_marca'];
       echo "<div class='d-flex justify-content-center mt-3 '>
       <div id='alert' class=' alert alert-danger alert-dismissible'>
       <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-      <strong>Marca deletada!</strong> </div> 
+      <strong>Marca '$nomeMarca' deletada!</strong> </div> 
       </div>";
     }
 
@@ -125,47 +126,52 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
               echo "<tr>";
               echo "<td>" . $marca['id_marca'] . "</td>";
               echo "<td>" . $marca['marca'] . "</td>";
-              echo "<td> 
+              echo "<td class='d-flex justify-content-around'> 
               <form method='post' action='../delete/deletemarca.php'>
                 <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
+                <input type='hidden' name='nome' value='" .$marca['marca'] ."'/>
                 <button type='submit' class='btn btn-danger' >Deletar</button>
               </form>
+              <form method='post' action='../update/updatemarca.php'>
+                <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
+                <input type='hidden' name='nome' value='" .$marca['marca'] ."'/>
+                <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modalAtualizar'>
+                  Atualizar
+               </button>
+              </form>
               </td>";
-        //       echo "<td> 
-        //       <form method='post' action='../update/updatemarca.php'>
-        //         <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
-        //         <input type='hidden' name='id' value='" .$marca['marca'] ."'/>
-        //         <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modal_update'>Atualizar</button>
-        //         <div class='modal' id='modal_update'>
-        //   <div class='modal-dialog'>
-        //     <div class='modal-content'>
-
-        //       <div class='modal-header'>
-        //         <h4 class='modal-title'>Atualizar marca</h4>
-        //         <button type='button' class='btn-close' data-bs-dismiss='modal'></button>
-        //       </div>
-
-        //       <div class='modal-body'>
-        //         <form action='../update/updatemarca.php' method='post'>
-        //           <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
-        //           <label for='' class='label-control'>Marca</label>
-        //           <input type='text' name='marca' class='form-control' value='" .$marca['marca'] ."'>
-        //           <div class='modal-footer'>
-        //             <button name='atualizar' type='submit' class='btn btn-danger' data-bs-dismiss='modal'>Atualizar</button>
-        //           </div>
-        //         </form>
-        //       </div>
-        //     </div>
-        //   </div>
-        // </div>
-        //       </form>
-        //       </td>";
               echo "</tr>";
             
             }
           ?>
         </tbody>
       </table>
+
+      <div class="modal" id="modalAtualizar">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+
+      
+          <div class="modal-header">
+            <h4 class="modal-title">Atualizar Marca</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+           <form action="../update/updatemarca.php">
+            <label class="form-label" for="">Marca</label>
+            <input class="form-control" type="text" value="<?php echo $_GET['nome_marca']?>">
+           </form>
+          </div>
+
+      
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+
+    </div>
+  </div>
+</div>
+
 
       <?php
       }else{
