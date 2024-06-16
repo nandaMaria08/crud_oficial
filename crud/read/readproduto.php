@@ -107,7 +107,7 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
             <th>Validade</th>
             <th>Quantidade</th>
             <th>Marca</th>
-            <th></th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>

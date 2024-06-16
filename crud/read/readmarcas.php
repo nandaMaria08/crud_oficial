@@ -131,35 +131,35 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 <button type='submit' class='btn btn-danger' >Deletar</button>
               </form>
               </td>";
-              echo "<td> 
-              <form method='post' action='../update/updatemarca.php'>
-                <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
-                <input type='hidden' name='id' value='" .$marca['marca'] ."'/>
-                <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modal_update'>Atualizar</button>
-                <div class='modal' id='modal_update'>
-          <div class='modal-dialog'>
-            <div class='modal-content'>
+        //       echo "<td> 
+        //       <form method='post' action='../update/updatemarca.php'>
+        //         <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
+        //         <input type='hidden' name='id' value='" .$marca['marca'] ."'/>
+        //         <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modal_update'>Atualizar</button>
+        //         <div class='modal' id='modal_update'>
+        //   <div class='modal-dialog'>
+        //     <div class='modal-content'>
 
-              <div class='modal-header'>
-                <h4 class='modal-title'>Atualizar marca</h4>
-                <button type='button' class='btn-close' data-bs-dismiss='modal'></button>
-              </div>
+        //       <div class='modal-header'>
+        //         <h4 class='modal-title'>Atualizar marca</h4>
+        //         <button type='button' class='btn-close' data-bs-dismiss='modal'></button>
+        //       </div>
 
-              <div class='modal-body'>
-                <form action='../update/updatemarca.php' method='post'>
-                  <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
-                  <label for='' class='label-control'>Marca</label>
-                  <input type='text' name='marca' class='form-control' value='" .$marca['marca'] ."'>
-                  <div class='modal-footer'>
-                    <button name='atualizar' type='submit' class='btn btn-danger' data-bs-dismiss='modal'>Atualizar</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-              </form>
-              </td>";
+        //       <div class='modal-body'>
+        //         <form action='../update/updatemarca.php' method='post'>
+        //           <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
+        //           <label for='' class='label-control'>Marca</label>
+        //           <input type='text' name='marca' class='form-control' value='" .$marca['marca'] ."'>
+        //           <div class='modal-footer'>
+        //             <button name='atualizar' type='submit' class='btn btn-danger' data-bs-dismiss='modal'>Atualizar</button>
+        //           </div>
+        //         </form>
+        //       </div>
+        //     </div>
+        //   </div>
+        // </div>
+        //       </form>
+        //       </td>";
               echo "</tr>";
             
             }
