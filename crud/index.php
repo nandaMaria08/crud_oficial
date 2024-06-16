@@ -295,7 +295,7 @@ input::-webkit-inner-spin-button {
                     echo "<td>" . $marca['marcas'] . "</td>";
                     echo "<td>" . $marca['contIDcat'] . " " .'produtos' . "</td>";
                   }
-                  
+
                   ?>
                 </tbody>
 
