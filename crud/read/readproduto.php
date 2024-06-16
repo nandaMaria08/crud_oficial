@@ -130,7 +130,7 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
     <?php
       }else{
-        echo "<h3> Não existe nenhuma marca cadastrada!<h3>" ;
+        echo "<h3> Não existe nenhum produto cadastrada!<h3>" ;
       }
       ?>
 </div>    
