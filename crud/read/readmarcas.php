@@ -134,8 +134,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
               echo "<tr>";
               echo "<td>" . $marca['id_marca'] . "</td>";
               echo "<td>" . $marca['marca'] . "</td>";
-              echo "<td class='d-flex justify-content-around'> 
-              
+              echo "<td> 
               <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#modalApagar" . $marca['id_marca'] . "'>
                   Deletar
               </button>
