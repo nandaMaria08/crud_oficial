@@ -132,22 +132,19 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 <input type='hidden' name='nome' value='" .$marca['marca'] ."'/>
                 <button type='submit' class='btn btn-danger' >Deletar</button>
               </form>
-              <form method='post' action='../update/updatemarca.php'>
-                <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
-                <input type='hidden' name='nome' value='" .$marca['marca'] ."'/>
-                <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modalAtualizar'>
-                  Atualizar
-               </button>
-              </form>
+               <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modalAtualizar" . $marca['id_marca'] . "'>
+                  Editar
+              </button>
               </td>";
               echo "</tr>";
             
             }
           ?>
+         
         </tbody>
       </table>
-
-      <div class="modal" id="modalAtualizar">
+<?php foreach($marcas as $marca) { ?>
+      <div class="modal" id="modalAtualizar<?php echo ($marca['id_marca']);?>"  >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
 
@@ -159,7 +156,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
           <div class="modal-body">
            <form action="../update/updatemarca.php">
             <label class="form-label" for="">Marca</label>
-            <input class="form-control" type="text" value="<?php echo $_GET['nome_marca']?>">
+            <input class="form-control" type="text" value='<?php echo ($marca['marca']); ?>'>
            </form>
           </div>
 
@@ -171,7 +168,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
 </div>
-
+<?php }?>
 
       <?php
       }else{
