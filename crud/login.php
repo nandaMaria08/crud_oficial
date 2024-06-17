@@ -53,7 +53,7 @@
                 </p> 
               </div>
               <div class="py-3 d-flex justify-content-center align-items-center ">
-                <button name="btn" type="submit" class="btn btn-danger">Enviar</button>
+                <button name="btn" type="submit" class="btn btn-danger">Entrar</button>
               </div>
               <div class="py-1" >
                 <p class="py-2 text-center" >Não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
