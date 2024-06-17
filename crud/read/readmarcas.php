@@ -168,9 +168,8 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <p>Você deseja realmente apagar esta marca? 
-              (Todos os produtos referentes a essa marca seram excluídos juntamente com a mesma.)
-            </p>
+            <p>Você deseja realmente apagar esta marca? </p>
+            <p>  (Todos os produtos referentes a essa marca seram excluídos juntamente com a mesma.)</p>
 
           <form method='post' action='../delete/deletemarca.php'>
                 <input type='hidden' name='id' value='<?php echo ($marca['id_marca']); ?>'/>
