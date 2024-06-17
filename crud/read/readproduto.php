@@ -139,6 +139,9 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 <input type='hidden' name='nome' value='" .$produto['produto'] ."'/>
                 <button type='submit' class='btn btn-danger' >Deletar</button>
               </form>
+              <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modalAtualizar" . $produto['id_produto'] . "'>
+                  Editar
+              </button>
               </td>";
             }
 
@@ -146,6 +149,35 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
         </tbody>
     </table>
+    <?php foreach($produtos as $produto) { ?>
+      <div class="modal" id="modalAtualizar<?php echo ($produto['id_produto']);?>"  >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+
+      
+          <div class="modal-header">
+            <h4 class="modal-title">Atualizar Produto</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+           <form action="../update/updatemarca.php" method="post">
+            <label class="form-label" for="">Marca</label>
+            <input class="form-control" type="text" id='<?php echo ($produto['id_produto']); ?>' value='<?php echo ($produto['produto']); ?>' name="atualizamarca">
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <input type="hidden" name='id' value='<?php echo ($produto['id_produto']); ?>'>
+            <button type="submit" name="atualizar" class="btn btn-danger" >Atualizar</button>
+          </div>
+           </form>
+          </div>
+
+      
+          
+
+    </div>
+  </div>
+</div>
+<?php }?>
 
     <?php
       }else{
