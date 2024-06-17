@@ -22,4 +22,7 @@
 
             header("Location:../read/readmarcas.php?atualizado");
             }
+            elseif(empty($_POST['atualizamarca'])){
+                header('Location:../read/readmarcas.php?npreenchidos');
+            }
     }

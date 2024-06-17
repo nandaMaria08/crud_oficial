@@ -109,6 +109,14 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
       </div>";
     }
 
+    if(isset($_GET['npreenchidos'])){
+      echo "<div class='d-flex justify-content-center mt-3 '>
+      <div id='alert' class=' alert alert-danger alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Preencha o campo do formulário corretamente !</strong> </div> 
+      </div>";
+    }
+
   ?>
 
 </div>
@@ -188,9 +196,10 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-           <form action="../update/updatemarca.php" method="post">
-            <label class="form-label" for="">Marca</label>
-            <input class="form-control" type="text" id='<?php echo ($marca['id_marca']); ?>' value='<?php echo ($marca['marca']); ?>' name="atualizamarca">
+           <form action="../update/updatemarca.php" method="post" class="needs-validation" novalidate>
+            <label class="form-label" for="">Marca <span class="text-danger">*</span></label>
+            <input class="form-control" type="text" id='<?php echo ($marca['id_marca']); ?>' value='<?php echo ($marca['marca']); ?>' name="atualizamarca" required>
+            <div class="invalid-feedback"> Este campo é obrigatório!</div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
             <input type="hidden" name='id' value='<?php echo ($marca['id_marca']); ?>'>
@@ -215,5 +224,23 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </footer>
 
+<script>
+  (() => {
+  'use strict'
+
+  const forms = document.querySelectorAll('.needs-validation')
+
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 </html>
