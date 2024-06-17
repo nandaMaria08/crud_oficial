@@ -101,6 +101,14 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
       </div>";
     }
 
+    if(isset($_GET['atualizado'])){
+      echo "<div class='d-flex justify-content-center mt-3 '>
+      <div id='alert' class=' alert alert-success alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Marca atualizada com sucesso!</strong> </div> 
+      </div>";
+    }
+
   ?>
 
 </div>
@@ -154,16 +162,19 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-           <form action="../update/updatemarca.php">
+           <form action="../update/updatemarca.php" method="post">
             <label class="form-label" for="">Marca</label>
-            <input class="form-control" type="text" value='<?php echo ($marca['marca']); ?>'>
+            <input class="form-control" type="text" id='<?php echo ($marca['id_marca']); ?>' value='<?php echo ($marca['marca']); ?>' name="atualizamarca">
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <input type="hidden" name='id' value='<?php echo ($marca['id_marca']); ?>'>
+            <button type="submit" name="atualizar" class="btn btn-danger" >Atualizar</button>
+          </div>
            </form>
           </div>
 
       
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          </div>
+          
 
     </div>
   </div>
