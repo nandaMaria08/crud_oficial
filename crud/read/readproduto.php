@@ -40,6 +40,11 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
     height: 20px;
     width: 20px;
   }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+   margin: 0;
+}
 </style>
 
 <body>
@@ -98,6 +103,14 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
       <div id='alert' class=' alert alert-danger alert-dismissible'>
       <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
       <strong>Produto '$nomeProduto' deletado!</strong> </div> 
+      </div>";
+    }
+
+    if(isset($_GET['atualizado'])){
+      echo "<div class='d-flex justify-content-center mt-3 '>
+      <div id='alert' class=' alert alert-success alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Produto atualizado com sucesso!</strong> </div> 
       </div>";
     }
 
@@ -160,19 +173,62 @@ $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-           <form action="../update/updatemarca.php" method="post">
-            <label class="form-label" for="">Marca</label>
-            <input class="form-control" type="text" id='<?php echo ($produto['id_produto']); ?>' value='<?php echo ($produto['produto']); ?>' name="atualizamarca">
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <input type="hidden" name='id' value='<?php echo ($produto['id_produto']); ?>'>
-            <button type="submit" name="atualizar" class="btn btn-danger" >Atualizar</button>
-          </div>
-           </form>
-          </div>
+          <form action="../update/updateproduto.php" method="post" >
+                  
+                  <div>
+                    <label class="form-label" for="">Nome do produto</label> 
+                    <input class="border border-dark rounded form-control xl-6 " type="text" name="produto" id='<?php echo ($produto['id_produto']); ?>' value='<?php echo ($produto['produto']); ?>' required>
+                     <div class="invalid-feedback"> Este campo é obrigatório!</div> 
+                    <label class="form-label" for="">Descrição</label> 
+                    <input class="border border-dark rounded form-control xl-6" type="text" name="descricao" id='<?php echo ($produto['id_produto']); ?>' value='<?php echo ($produto['descricao']); ?>' required>
+                    <div class="invalid-feedback"> Este campo é obrigatório!</div> 
+                 </div>
+                 <div class="row">
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Preço</label>
+                        <input type="number" id="preco" name="preco" class="preco form-control border border-dark rounded" id='<?php echo ($produto['id_produto']); ?>' value='<?php echo ($produto['preco']); ?>' required>
+                        <div class="invalid-feedback"> Este campo é obrigatório!</div> 
+                     </div>
+                     <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Data de validade</label>
+                        <input type="date" class="form-control border border-dark rounded" name="validade" id='<?php echo ($produto['id_produto']); ?>' value='<?php echo ($produto['validade']); ?>' required >
+                        <div class="invalid-feedback"> Este campo é obrigatório!</div> 
+                     </div> 
 
-      
-          
+                 </div>
+                 <div class="row">
+                    <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Quantidade</label>
+                        <input type="number" class="form-control border border-dark rounded"  name="quantidade" id='<?php echo ($produto['id_produto']); ?>' value='<?php echo ($produto['quantidade']); ?>' required >
+                        <div class="invalid-feedback"> Este campo é obrigatório!</div> 
+                     </div>
+                     <div class="col col-lg-6 col-md-12 col-sm-12">
+                        <label class="form-label" for="">Marca</label>
+                        <select class="form-select border border-dark rounded" name="id_marca" id='<?php echo ($produto['id_produto']); ?>' value='<?php echo ($produto['id_marca']); ?>' required>
+                          <option disabled selected value="">Selecione a Marca</option>
+                            <?php
+                              $sql = "SELECT * FROM marcas";
+                              $resultado = $pdo->prepare($sql);
+                              $resultado->execute();
+                              $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
+                              if(count($marcas) > 0){
+                                foreach($marcas as $marca){
+                                    echo "<option value='" . $marca['id_marca'] . "'>" . $marca['marca'] . "</    option>";
+                                  }
+                             }
+                            ?>
+                        </select>
+                        <div class="invalid-feedback"> Este campo é obrigatório!</div> 
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <input type="hidden" name='id' value='<?php echo ($produto['id_produto']); ?>'>
+                    <button type="submit" name="atualizar" class="btn btn-danger" >Atualizar</button>
+                  </div>
+                </form>
+           
+          </div>
 
     </div>
   </div>
