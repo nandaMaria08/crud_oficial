@@ -147,11 +147,10 @@ input::-webkit-inner-spin-button {
               echo "<td>" . $produto['quantidade'] . "</td>";
               echo "<td>" . $produto['marcas'] . "</td>";
               echo "<td> 
-              <form method='post' action='../delete/deleteproduto.php'>
-                <input type='hidden' name='id' value='" .$produto['id_produto'] ."'/>
-                <input type='hidden' name='nome' value='" .$produto['produto'] ."'/>
-                <button type='submit' class='btn btn-danger my-1' >Deletar</button>
-              </form>
+              
+              <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#modalApagar" . $produto['id_produto'] . "'>
+                  Deletar
+              </button>
               <button type='button' class='btn btn-secondary ' data-bs-toggle='modal' data-bs-target='#modalAtualizar" . $produto['id_produto'] . "'>
                   Editar
               </button>
@@ -162,6 +161,33 @@ input::-webkit-inner-spin-button {
 
         </tbody>
     </table>
+    <?php foreach($produtos as $produto) { ?>
+      <div class="modal" id="modalApagar<?php echo ($produto['id_produto']);?>"  >
+        <div class="modal-dialog modal-dialog">
+          <div class="modal-content">
+
+      
+          <div class="modal-header">
+            <h4 class="modal-title">Apagar marca</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Você deseja apagar este produto?</p>
+
+          <form method='post' action='../delete/deleteproduto.php'>
+                <input type='hidden' name='id' value='<?php echo ($produto['id_produto']); ?>'/>
+                <input type='hidden' name='nome' value='<?php echo ($produto['produto']); ?>'/>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type='submit' class='btn btn-danger' >Deletar</button>
+                </div>
+          </form>
+          </div>
+    </div>
+  </div>
+</div>
+<?php }?>
+
     <?php foreach($produtos as $produto) { ?>
       <div class="modal" id="modalAtualizar<?php echo ($produto['id_produto']);?>"  >
         <div class="modal-dialog modal-dialog-centered">

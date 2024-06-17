@@ -135,12 +135,11 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
               echo "<td>" . $marca['id_marca'] . "</td>";
               echo "<td>" . $marca['marca'] . "</td>";
               echo "<td class='d-flex justify-content-around'> 
-              <form method='post' action='../delete/deletemarca.php'>
-                <input type='hidden' name='id' value='" .$marca['id_marca'] ."'/>
-                <input type='hidden' name='nome' value='" .$marca['marca'] ."'/>
-                <button type='submit' class='btn btn-danger' >Deletar</button>
-              </form>
-               <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modalAtualizar" . $marca['id_marca'] . "'>
+              
+              <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#modalApagar" . $marca['id_marca'] . "'>
+                  Deletar
+              </button>
+              <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modalAtualizar" . $marca['id_marca'] . "'>
                   Editar
               </button>
               </td>";
@@ -151,6 +150,34 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
          
         </tbody>
       </table>
+      <?php foreach($marcas as $marca) { ?>
+      <div class="modal" id="modalApagar<?php echo ($marca['id_marca']);?>"  >
+        <div class="modal-dialog modal-dialog">
+          <div class="modal-content">
+
+      
+          <div class="modal-header">
+            <h4 class="modal-title">Apagar marca</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Você deseja apagar esta marca?</p>
+
+          <form method='post' action='../delete/deletemarca.php'>
+                <input type='hidden' name='id' value='<?php echo ($marca['id_marca']); ?>'/>
+                <input type='hidden' name='nome' value='<?php echo ($marca['marca']); ?>'/>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type='submit' class='btn btn-danger' >Deletar</button>
+                </div>
+          </form>
+          </div>
+    </div>
+  </div>
+</div>
+<?php }?>
+
+
 <?php foreach($marcas as $marca) { ?>
       <div class="modal" id="modalAtualizar<?php echo ($marca['id_marca']);?>"  >
         <div class="modal-dialog modal-dialog-centered">
@@ -172,10 +199,6 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
           </div>
            </form>
           </div>
-
-      
-          
-
     </div>
   </div>
 </div>
