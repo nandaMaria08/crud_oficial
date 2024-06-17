@@ -113,6 +113,13 @@ input::-webkit-inner-spin-button {
       <strong>Produto atualizado com sucesso!</strong> </div> 
       </div>";
     }
+    if(isset($_GET['npreenchidos'])){
+      echo "<div class='d-flex justify-content-center mt-3 '>
+      <div id='alert' class=' alert alert-danger alert-dismissible'>
+      <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+      <strong>Preencha os campos do formulário corretamente !</strong> </div> 
+      </div>";
+    }
 
   ?>
 
@@ -199,7 +206,7 @@ input::-webkit-inner-spin-button {
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-          <form action="../update/updateproduto.php" method="post" >
+          <form action="../update/updateproduto.php" method="post" class="needs-validation" novalidate>
                   
                   <div>
                     <label class="form-label" for="">Nome do produto</label> 
@@ -273,6 +280,23 @@ input::-webkit-inner-spin-button {
           © 2024 Sistemas 2
     </div>
   </footer>
+<script>
+  (() => {
+  'use strict'
 
+  const forms = document.querySelectorAll('.needs-validation')
+
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
 </body>
 </html>

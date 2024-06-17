@@ -113,7 +113,7 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
       echo "<div class='d-flex justify-content-center mt-3 '>
       <div id='alert' class=' alert alert-danger alert-dismissible'>
       <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-      <strong>Preencha o campo do formulário corretamente !</strong> </div> 
+      <strong>Preencha os campos do formulário corretamente !</strong> </div> 
       </div>";
     }
 
@@ -168,7 +168,9 @@ $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <p>Você deseja apagar esta marca?</p>
+            <p>Você deseja realmente apagar esta marca? 
+              (Todos os produtos referentes a essa marca seram excluídos juntamente com a mesma.)
+            </p>
 
           <form method='post' action='../delete/deletemarca.php'>
                 <input type='hidden' name='id' value='<?php echo ($marca['id_marca']); ?>'/>

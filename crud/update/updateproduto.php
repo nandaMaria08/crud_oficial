@@ -38,4 +38,7 @@
             // echo "Deu certo";
             header("Location:../read/readproduto.php?atualizado");
             }
+            elseif(empty($_POST['produto']) || empty($_POST['descricao']) || empty($_POST['preco']) || empty($_POST['validade']) || empty($_POST['quantidade']) || empty($_POST['id_marca'])){
+                header('Location:../read/readproduto.php?npreenchidos');
+            }
     }
