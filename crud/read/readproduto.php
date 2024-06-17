@@ -117,7 +117,7 @@ input::-webkit-inner-spin-button {
   ?>
 
 
-<div class="d-flex justify-content-center py-5 mb-5 table-responsive-md">
+<div class="d-flex justify-content-center py-5 mb-5 mx-5 table-responsive-md">
     <?php
     if(count($produtos) > 0){
     ?>
@@ -150,9 +150,9 @@ input::-webkit-inner-spin-button {
               <form method='post' action='../delete/deleteproduto.php'>
                 <input type='hidden' name='id' value='" .$produto['id_produto'] ."'/>
                 <input type='hidden' name='nome' value='" .$produto['produto'] ."'/>
-                <button type='submit' class='btn btn-danger' >Deletar</button>
+                <button type='submit' class='btn btn-danger my-1' >Deletar</button>
               </form>
-              <button type='button' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modalAtualizar" . $produto['id_produto'] . "'>
+              <button type='button' class='btn btn-secondary ' data-bs-toggle='modal' data-bs-target='#modalAtualizar" . $produto['id_produto'] . "'>
                   Editar
               </button>
               </td>";
