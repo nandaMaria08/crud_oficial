@@ -5,7 +5,7 @@ if (!isset($_SESSION['id'])) {
   header('Location: ../login.php');
 }
 
-$sql = "SELECT p.id_produto, p.produto, p.descricao,p.preco, p.validade, p.quantidade, m.id_marca, m.marca as marcas from produtos as p join marcas as m on p.id_marca = m.id_marca order by p.produto ASC;";
+$sql = "SELECT p.id_produto, p.produto, p.descricao,p.preco, p.validade, p.quantidade, m.id_marca, m.marca as marcas, p.id_marca from produtos as p join marcas as m on p.id_marca = m.id_marca order by p.produto ASC;";
 $resultado = $pdo->prepare($sql);
 $resultado->execute();
 $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -246,7 +246,13 @@ input::-webkit-inner-spin-button {
                               $marcas = $resultado->fetchAll(PDO::FETCH_ASSOC);
                               if(count($marcas) > 0){
                                 foreach($marcas as $marca){
+                                  if($marca['id_marca'] == $produto['id_marca']){
+                                    echo "<option value='" . $marca['id_marca'] . "'selected>" . $marca['marca'] . "</    option>";
+
+                                  }else{
                                     echo "<option value='" . $marca['id_marca'] . "'>" . $marca['marca'] . "</    option>";
+
+                                  }
                                   }
                              }
                             ?>
